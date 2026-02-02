@@ -1,0 +1,60 @@
+<% layout("layouts/boilerplate") -%>
+
+<body>
+    <div class="row">
+        <div class="col-8 offset-2">
+            <br><br>
+    <h3>Create a New Listing</h3>
+    <br>
+    <form method="post" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data">
+        <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" name="listing[title]" placeholder="title" class="form-control" required>
+        <div class="valid-feedback">Title is good!</div>
+        <div class="invalid-feedback">Title is required</div>
+        </div>
+       
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+        <textarea name="listing[description]" class="form-control" required></textarea>
+        <div class="valid-feedback">Description looks good</div>
+        <div class="invalid-feedback">description is required</div>
+        </div>
+        
+        <div class="mb-3">
+            <label for="price" class="form-label">Price</label>
+            <input type="number" name="listing[price]" placeholder="price" class="form-control" required>
+            <div class="valid-feedback">price is okk</div>
+            <div class="invalid-feedback">Price is required</div>
+        </div>
+
+     
+        <div class="mb-3">
+        <label for="image" class="form-label">Image</label>
+        <input type="file" name="listing[image]" class="form-control">
+        
+        </div>
+        
+        <div class="mb-3">
+
+            <label for="location" class="form-label">Location</label>
+            <input type="text" name="listing[location]" placeholder="location" class="form-control" required>
+            <div class="valid-feedback">location is ok</div>
+            <div class="invalid-feedback">location is required</div>
+    
+        </div>
+
+        <div class="mb-3">
+            <label for="country" class="form-label">Country</label>
+            <input type="text" name="listing[country]" placeholder="country" class="form-control" required>
+            <div class="valid-feedback">country is good!</div>
+        <div class="invalid-feedback">Enter valid country</div>
+        </div>
+        
+        
+        <button class="btn btn-dark add-btn">Post</button>
+    </form>
+    <br><br>
+    </div>
+</div>
+</body>
