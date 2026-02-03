@@ -23,43 +23,30 @@ module.exports.showListing = async (req,res,next)=>{
     }
 };
 module.exports.createListing = async (req, res) => {
-  const listing = new Listing(req.body.listing);
-  listing.owner = req.user._id;
+  try {
+    // ✅ STEP 3: CHECK USER EXISTS (ADD HERE)
+    if (!req.user) {
+      return res.status(401).send("You must be logged in");
+    }
 
-  // 🔵 STEP 2.1 — Call OpenStreetMap Nominatim
-  const location = req.body.listing.location;
+    const listing = new Listing(req.body.listing);
+    listing.owner = req.user._id;
 
-  const geoResponse = await fetch(
-    `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(location)}`
-  );
+    // ✅ SAFE IMAGE HANDLING
+    if (req.file) {
+      listing.image = {
+        url: req.file.path,
+        filename: req.file.filename,
+      };
+    }
 
-  const geoData = await geoResponse.json();
+    await listing.save();
+    res.redirect("/listings");
 
-  // 🔴 If location not found
-  if (!geoData.length) {
-    req.flash("error", "Location not found");
-    return res.redirect("/listings/new");
+  } catch (err) {
+    console.error("CREATE LISTING ERROR:", err);
+    res.status(500).send("Something went wrong");
   }
-
-  // 🔵 STEP 2.2 — Save coordinates
-  listing.geometry = {
-    type: "Point",
-    coordinates: [
-      geoData[0].lon,
-      geoData[0].lat,
-    ],
-  };
-
-  // image (Cloudinary)
-  listing.image = {
-    url: req.file.path,
-    filename: req.file.filename,
-  };
-
-  await listing.save();
-
-  req.flash("success", "New listing created");
-  res.redirect("/listings");
 };
 
 

@@ -15,11 +15,11 @@ const storage = new CloudinaryStorage({
     allowedFormats: ["png", "jpeg", "jpg"],
   },
 });
-console.log("Cloudinary loaded:", {
-  cloud: process.env.CLOUDINARY_CLOUD_NAME,
-  key: process.env.CLOUDINARY_KEY,
-  secret: process.env.CLOUDINARY_SECRET,
-});
+// console.log("Cloudinary loaded:", {
+//   cloud: process.env.CLOUDINARY_CLOUD_NAME,
+//   key: process.env.CLOUDINARY_KEY,
+//   secret: process.env.CLOUDINARY_SECRET,
+// });
 
 
 module.exports = { cloudinary, storage };
