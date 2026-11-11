@@ -1,182 +1,192 @@
-[README.md](https://github.com/user-attachments/files/34674737/README.md)
-# InterviewReady AI
+[README.md](https://github.com/user-attachments/files/34674907/README.md)
+# Wanderlust – Homestay & Travel Listing Platform
 
-An AI-powered interview preparation platform that analyzes a candidate's resume or self-description against a target job description and generates a personalized interview preparation strategy.
+Wanderlust is a full-stack web application inspired by travel and homestay marketplaces. It allows users to explore accommodation listings, search destinations, view listing details, and contribute by creating listings and leaving reviews.
 
-InterviewReady AI helps candidates understand how closely their profile matches a role, identify skill gaps, practise technical and behavioral questions, and follow a focused preparation roadmap.
+The project demonstrates end-to-end web development concepts including authentication, database-backed listings, image uploads, reviews, and map-based location display.
 
-<!-- Replace the links below with your actual deployed URLs and repository URL. -->
-**Live Demo:** https://wanderlust-14mi.onrender.com/listings/new  
+**Live Demo:** https://wanderlust-14mi.onrender.com  
+**GitHub Repository:** https://github.com/rishiadhikary/Wanderlust-Project
 
 ---
 
 ## Screenshots
 
-### Create a personalized interview plan
-Provide a target job description and either upload a resume (PDF/DOCX) or enter a short self-description.
+### Explore listings
+Browse accommodation cards, explore categories, and search for destinations.
 
-![Create interview plan](assets/screenshots/create-interview-plan.png)
+![Explore listings](assets/screenshots/explore-listings.png)
 
-### Generate interview strategy
-The platform uses the job requirements and candidate profile to create a tailored preparation strategy.
+### Home page – authenticated user
+The navigation changes based on the user's authentication state and provides access to hosting and account actions.
 
-![Generate interview plan](assets/screenshots/generate-interview-plan.png)
+![Home page](assets/screenshots/home-authenticated.png)
 
-### Technical interview questions
-Review role-specific technical questions generated from the candidate profile and job requirements.
+### Listing details
+View an accommodation's images, description, owner, price, and location.
 
-![Technical questions](assets/screenshots/technical-questions.png)
+![Listing details](assets/screenshots/listing-details.png)
 
-### Personalized preparation roadmap
-Follow a structured, seven-day preparation plan with topics and concrete tasks.
+### Reviews and map
+Read guest reviews and view the listing's location on an interactive map.
 
-![Preparation roadmap](assets/screenshots/preparation-roadmap.png)
+![Reviews and map](assets/screenshots/listing-reviews-and-map.png)
+
+### Create a listing
+Authenticated users can submit a new listing with its title, description, price, image, location, and country.
+
+![Create listing](assets/screenshots/create-listing.png)
 
 ### Authentication
-Users can create an account and sign in to access the application.
 
-| Register | Login |
+| Login | Sign up |
 |---|---|
-| ![Register](assets/screenshots/register.png) | ![Login](assets/screenshots/login.png) |
+| ![Login](assets/screenshots/login.png) | ![Sign up](assets/screenshots/signup.png) |
 
 ---
 
 ## Features
 
-- **Resume or self-description input:** Upload a PDF/DOCX resume or provide a written profile.
-- **Job description analysis:** Use a target job description as the basis for personalized preparation.
-- **Profile-to-role match score:** Display an AI-generated match score and an indication of role alignment.
-- **Skill-gap identification:** Highlight skills and knowledge areas that may need more preparation.
-- **Technical questions:** Generate technical interview questions relevant to the target role.
-- **Behavioral questions:** Prepare for behavioral and HR interview rounds.
-- **Preparation roadmap:** Generate a structured seven-day plan with daily topics and tasks.
-- **Resume download:** Access the resume download action from the preparation interface.
-- **User authentication:** Register and log in to the platform.
+- **Explore listings:** Browse available stays through a card-based listing interface.
+- **Destination search:** Search listings by destination.
+- **Category navigation:** Explore themed categories such as rooms, mountains, castles, iconic cities, Arctic stays, camping, and farms.
+- **Listing details:** View listing descriptions, images, pricing, owner information, and location.
+- **Create listings:** Add a property with a title, description, price, image, location, and country.
+- **Reviews and ratings:** View user reviews and ratings on listing detail pages.
+- **Interactive map:** Display a listing's location using a map.
+- **User authentication:** Register and log in to access authenticated features.
+- **Responsive interface:** Browse the platform across different screen sizes.
 
-## How It Works
+## Tech Stack
 
-1. Register or log in.
-2. Paste the target job description.
-3. Upload a resume in PDF/DOCX format or enter a self-description.
-4. Generate the interview strategy.
-5. Review the match score and identified skill gaps.
-6. Practise the generated technical and behavioral questions.
-7. Follow the preparation roadmap.
+The project uses the following technologies and services:
 
-## Technology Stack
-
-> Update this section if your implementation uses different libraries or services.
-
-| Layer | Technology |
+| Layer | Technologies |
 |---|---|
-| Frontend | React.js, Vite |
 | Backend | Node.js, Express.js |
-| Database | MongoDB |
-| AI integration | Google Gemini API |
-| API communication | Axios / Fetch |
-| Deployment | Add your hosting providers |
+| Frontend | EJS, HTML, CSS, JavaScript, Bootstrap |
+| Database | MongoDB, Mongoose |
+| Authentication | Passport.js, express-session |
+| Session storage | connect-mongo |
+| Image handling | Cloudinary / image upload integration |
+| Maps | Leaflet, OpenStreetMap |
+| Deployment | Render |
+| Version control | Git, GitHub |
 
-## Lighthouse Scores
+*Review this list against your current `package.json` and implementation before publishing. Remove or adjust any technology that is not present in the repository.*
 
-The reported Lighthouse audit results for InterviewReady AI are:
+## Application Flow
 
-| Category | Score |
-|---|---:|
-| Performance | **100** |
-| Accessibility | **93** |
-| Best Practices | **96** |
-| SEO | **96** |
+1. Open the Explore page to browse available stays.
+2. Search for a destination or explore a category.
+3. Select a listing to view its details, images, price, reviews, and map location.
+4. Register or log in to access authenticated actions.
+5. Use the hosting flow to create a listing by entering its details and uploading an image.
+6. Read reviews and ratings shared on listing pages.
 
-Scores can vary depending on the audit environment, device emulation, network conditions, and the page being tested. These values represent the results reported for the project at the time of the audit.
+## Project Structure
+
+The exact structure may vary. A typical Express MVC structure for this project looks like:
+
+```text
+Wanderlust-Project/
+├── controllers/
+├── models/
+├── routes/
+├── views/
+│   ├── layouts/
+│   ├── listings/
+│   └── users/
+├── public/
+│   ├── css/
+│   └── js/
+├── utils/
+├── middleware.js
+├── app.js
+├── cloudConfig.js
+├── schema.js
+├── package.json
+└── README.md
+```
 
 ## Getting Started
-
-The commands below are a general setup outline. Confirm the actual folder names and npm scripts in your repository before running them.
 
 ### Prerequisites
 
 - Node.js and npm
-- A MongoDB database, if the backend uses MongoDB
-- An AI provider API key, if required by the backend
+- MongoDB database (local MongoDB or MongoDB Atlas)
+- Cloudinary account or the image-storage service configured by the project
 
 ### 1. Clone the repository
 
 ```bash
-git clone <YOUR_GITHUB_REPOSITORY_URL>
-cd <YOUR_PROJECT_DIRECTORY>
+git clone https://github.com/rishiadhikary/Wanderlust-Project.git
+cd Wanderlust-Project
 ```
 
 ### 2. Install dependencies
 
-If your project has separate frontend and backend folders:
-
 ```bash
-cd backend
-npm install
-
-cd ../frontend
 npm install
 ```
 
 ### 3. Configure environment variables
 
-Create the required `.env` files based on the variables read by your application. For example:
+Create a `.env` file in the project root. The following are illustrative variable names; use the exact names expected by your source code.
 
 ```env
-# Backend examples — use the exact variable names from your code
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret
-GOOGLE_GENAI_API_KEY=your_gemini_api_key
+ATLASDB_URL=your_mongodb_connection_string
+SECRET=your_session_secret
+CLOUD_NAME=your_cloudinary_cloud_name
+CLOUD_API_KEY=your_cloudinary_api_key
+CLOUD_API_SECRET=your_cloudinary_api_secret
 ```
 
-Do not commit real credentials or `.env` files. Add a sanitized `.env.example` file to document the required variable names.
+If your application uses a local database, configure the corresponding MongoDB connection string instead.
 
-### 4. Run the application
+**Security:** Never commit `.env` files, database credentials, session secrets, or Cloudinary keys. Keep a sanitized `.env.example` in the repository if you want to document the required configuration.
 
-Use the scripts defined in each `package.json`. A common Vite frontend command is:
+### 4. Start the server
+
+Run the start command defined in your `package.json`. For example:
 
 ```bash
-npm run dev
+npm start
 ```
 
-Start the backend with the development script configured in its `package.json` (for example, `npm run dev`).
+If your project uses a different script, use that script instead.
 
-## Project Structure
+### 5. Open the application
 
-The exact structure may differ depending on your repository:
+Visit the local address printed by your server in the terminal (commonly `http://localhost:8080`, depending on your configuration).
 
-```text
-InterviewReady-AI/
-├── frontend/
-│   ├── src/
-│   ├── public/
-│   └── package.json
-├── backend/
-│   ├── routes/
-│   ├── controllers/
-│   ├── models/
-│   └── package.json
-├── assets/
-│   └── screenshots/
-└── README.md
-```
+## Deployment
 
-## Future Enhancements
+The project is configured for deployment on Render.
 
-- Interactive mock interviews with follow-up questions.
-- Voice-based interview practice.
-- AI-generated feedback on spoken or written answers.
-- Progress tracking across multiple preparation sessions.
-- More detailed resume improvement recommendations.
+- **Application:** https://wanderlust-14mi.onrender.com
+- **Database:** MongoDB Atlas
+- **Image storage:** Cloudinary, if enabled in the deployed configuration
+
+Availability may depend on the hosting service's current instance status.
+
+## Future Improvements
+
+- Add advanced filters for price, ratings, and property types.
+- Add sorting by price and popularity.
+- Improve listing management with clearer owner controls.
+- Add booking and reservation workflows.
+- Add automated tests for routes and core user flows.
+- Improve accessibility, keyboard navigation, and mobile usability.
 
 ## Contributing
 
-Contributions and suggestions are welcome.
+Suggestions and contributions are welcome.
 
 1. Fork the repository.
 2. Create a feature branch.
-3. Commit your changes.
-4. Push the branch.
+3. Make and test your changes.
+4. Commit and push your branch.
 5. Open a pull request.
 
 ## Author
@@ -185,8 +195,8 @@ Contributions and suggestions are welcome.
 B.Tech, Mechanical Engineering — NIT Durgapur
 
 - GitHub: [rishiadhikary](https://github.com/rishiadhikary)
-- LinkedIn: https://www.linkedin.com/in/rishiadhikarydeveloper/
+- Project repository: [Wanderlust-Project](https://github.com/rishiadhikary/Wanderlust-Project)
 
 ---
 
-If you find this project useful, consider giving the repository a star.
+If you find this project interesting, consider giving the repository a star.
